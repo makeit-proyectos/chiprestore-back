@@ -8,23 +8,7 @@
 module.exports = {
   
 
-  /**
-   * `UsersController.name()`
-   */
-  name: async function (req, res) {
-    return res.json({
-      todo: 'name() is not implemented yet!'
-    });
-  },
 
-  /**
-   * `UsersController.email()`
-   */
-  email: async function (req, res) {
-    return res.json({
-      todo: 'email() is not implemented yet!'
-    });
-  }
 
 };
 
