@@ -7,27 +7,104 @@
 
 module.exports = {
   
-
+    get: function(req,res){
+        Product.find()
+          .then(function(products){
+              if(!products || products.length == 0){
+                  return res.send({
+                      'success': false,
+                      'message': 'No products found'
+                  })
+              }
+              return res.send({
+                  'success':true,
+                  'message':'products fetched',
+                  'data':products
+              })
+          })
+          .catch(function(err){
+              sails.log.debug(err)
+              return res.send({
+                  'success':false,
+                  'message':'Unable to fetched products',
+                  'error':err
+              })
+          })
+    },
     create: function (req, res){
         Product.create(req.allParams())
-                .then(function(products){
+                .then(function(product){
                     return res.send({
-                        'data':products
+                        'success':true,
+                        'message':'Product created successfully',
+                        'data':product
                     })
                 })
                 .catch(function(err){
                     return res.send({
+                        'success':false,
+                        'message':'Unable to create product',
                         'error':err
                     })
                 })
     },
-
-    findAttire: function(req,res){
+    update: function(req,res){
+        Product.update(req.param('id'),req.allParams())
+            .then(function(product){
+                return res.send({
+                    'success':true,
+                    'message':'Product updated successfully',
+                    'data':product
+                })
+            })
+            .catch(function(err){
+                sails.log.debug(err)
+                return res.send({
+                    'success':false,
+                    'message':'Unable to update product',
+                    'error':err
+                })
+            })
+    },
+    delete:function(req,res){
+        Product.destroy(req.param('id'))
+            .then(function(product){
+                return res.send({
+                    'success':true,
+                    'message':'Product deleted successfully',
+                    'data':product
+                })
+            })
+            .catch(function(err){
+                sails.log.debug(err)
+                return res.send({
+                    'success':false,
+                    'message':'Unable to delete product',
+                    'error':err
+                })
+            })
+    },
+    findByAttire: function(req,res){
         Product.find({attire:req.param('attire')})
                 .then(function(products){
+                    if(!products || products.length == 0){
+                        return res.send({
+                            'success':false,
+                            'message': 'No products found'
+                        })
+                    }
                     return res.send({
                         'success':true,
+                        'message':'Products fetched successfully',
                         'data':products
+                    })
+                })
+                .catch(function(err){
+                    sails.log.debug(err)
+                    return res.send({
+                        'success':false,
+                        'message':'Unable to fetch products',
+                        'error':err
                     })
                 })
     },
