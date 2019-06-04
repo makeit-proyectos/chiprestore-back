@@ -10,12 +10,6 @@ module.exports = {
     get: function(req,res){
         User.find()
             .then(function(users){
-                if(!users || users.length==0){
-                    return res.send({
-                        'success':false,
-                        'message':"No records found"
-                    })
-                }
                 return res.send({
                       'success': true,
                       'message': 'Recods fetched',

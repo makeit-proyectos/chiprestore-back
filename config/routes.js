@@ -42,5 +42,8 @@ module.exports.routes = {
  //RUTAS PARA PRODUCTOS
  'GET /api/products': 'ProductController.get',
  'POST /api/products':'ProductController.create',
- 'POST /api/products/search':'ProductController.search'
+ 'POST /api/products/search':'ProductController.search',
+
+ //RUTAS PARA STOCK
+ 
 };

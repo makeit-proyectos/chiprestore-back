@@ -10,7 +10,7 @@ module.exports = {
     get: function(req,res){
         Stock.find()
           .then(function(Stocks){
-              if(!Stocks || Stocks.length == 0){
+              if(!Stocks || Stocks.length === 0){
                   return res.send({
                       'success': false,
                       'message': 'No stocks found'

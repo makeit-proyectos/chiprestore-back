@@ -10,7 +10,7 @@ module.exports = {
     get: function(req,res){
         Product.find()
           .then(function(products){
-              if(!products || products.length == 0){
+              if(!products || products.length === 0){
                   return res.send({
                       'success': false,
                       'message': 'No products found'
@@ -87,7 +87,7 @@ module.exports = {
     findByAttire: function(req,res){
         Product.find({attire:req.param('attire')})
                 .then(function(products){
-                    if(!products || products.length == 0){
+                    if(!products || products.length === 0){
                         return res.send({
                             'success':false,
                             'message': 'No products found'
@@ -112,7 +112,7 @@ module.exports = {
     search: function(req,res){
         
         Product.find({
-            parametro:{contains:req.param('parametro')}
+            name:{contains:req.param('name')}
         })
         /*.find({
             or : [

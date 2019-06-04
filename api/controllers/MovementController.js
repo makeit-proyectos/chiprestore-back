@@ -9,7 +9,7 @@ module.exports = {
     get: function(req,res){
         Movement.find()
           .then(function(movements){
-              if(!movements || movements.length == 0){
+              if(!movements || movements.length === 0){
                   return res.send({
                       'success': false,
                       'message': 'No movements found'

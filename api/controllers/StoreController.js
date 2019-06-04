@@ -9,7 +9,7 @@ module.exports = {
   get: function(req,res){
       Store.find()
         .then(function(stores){
-            if(!stores || stores.length == 0){
+            if(!stores || stores.length === 0){
                 return res.send({
                     'success': false,
                     'message': 'No records found'
