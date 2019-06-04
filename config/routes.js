@@ -33,5 +33,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  //RUTAS PARA USUARIOS
+ 'GET /api/users':'UserController.get',
+ 'POST /api/users/create':'UserController.create',
 
+
+ //RUTAS PARA PRODUCTOS
+ 'POST /api/products':'ProductController.create',
+ 'POST /api/products/search':'ProductController.search'
 };

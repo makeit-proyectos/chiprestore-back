@@ -38,12 +38,14 @@ module.exports = {
     description:{
       type: 'string'
     },
+    parametro:{
+      type:'string'
+    },
 
     stores:{
       collection:'store',
       via:'product',
       through:'stock'
-
     }
 
 
