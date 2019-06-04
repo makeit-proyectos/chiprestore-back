@@ -9,7 +9,11 @@ module.exports = {
 
   tableName:'products',
   attributes: {
-
+    //Name'll be concatenation from the others fields. That combination will describe a unique product and in that way we control repeated products 
+    name:{
+      type:'string',
+      required:true
+    },
     color:{
       type: 'string',
       required:true
@@ -43,7 +47,6 @@ module.exports = {
       collection:'store',
       via:'product',
       through:'stock'
-
     }
 
 
